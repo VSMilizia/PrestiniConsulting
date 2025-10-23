@@ -1,0 +1,21 @@
+# --- BASE ---
+baseURL = "http://localhost:1313/"
+title = "Prestini Consulting"
+theme = "github.com/devcows/hugo-universal-theme"
+
+# --- LINGUE ---
+defaultContentLanguage = "it"
+defaultContentLanguageInSubdir = true   # crea /it/, /es/, /en/ (utile per test e SEO)
+
+[languages]
+  [languages.it]
+    languageName = "Italiano"
+    weight = 1
+
+  [languages.es]
+    languageName = "Español"
+    weight = 2
+
+  [languages.en]
+    languageName = "English"
+    weight = 3
