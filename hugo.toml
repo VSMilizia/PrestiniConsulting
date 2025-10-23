@@ -1,5 +1,5 @@
 # --- BASE ---
-baseURL = "http://localhost:1313/"
+baseURL = "https://ivanprestini.com/"
 title = "Prestini Consulting"
 theme = "github.com/devcows/hugo-universal-theme"
 
