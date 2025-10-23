@@ -19,6 +19,12 @@
                 href="http://localhost:1313/it/categories/"
                 />
   </url><url>
+    <loc>http://localhost:1313/it/it/</loc>
+  </url><url>
+    <loc>http://localhost:1313/it/es/</loc>
+  </url><url>
+    <loc>http://localhost:1313/it/en/</loc>
+  </url><url>
     <loc>http://localhost:1313/it/</loc>
     <xhtml:link
                 rel="alternate"

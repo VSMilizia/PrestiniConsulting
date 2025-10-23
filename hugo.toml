@@ -12,6 +12,37 @@ defaultContentLanguageInSubdir = true   # crea /it/, /es/, /en/ (utile per test 
     languageName = "Italiano"
     weight = 1
 
+    [languages.it.menu]
+  [[languages.it.menu.main]]
+    name = "Hero"
+    url  = "/it/#hero"
+    weight = 10
+  [[languages.it.menu.main]]
+    name = "Chi sono"
+    url  = "/it/#bio"
+    weight = 20
+  [[languages.it.menu.main]]
+    name = "Competenze"
+    url  = "/it/#expertises"
+    weight = 30
+  [[languages.it.menu.main]]
+    name = "Progetti"
+    url  = "/it/#projects"
+    weight = 40
+  [[languages.it.menu.main]]
+    name = "Metodo"
+    url  = "/it/#method"
+    weight = 50
+  [[languages.it.menu.main]]
+    name = "Dicono di me"
+    url  = "/it/#testimonials"
+    weight = 60
+  [[languages.it.menu.main]]
+    name = "Contatti"
+    url  = "/it/#contact"
+    weight = 70
+
+
   [languages.es]
     languageName = "Español"
     weight = 2
