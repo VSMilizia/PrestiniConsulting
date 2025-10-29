@@ -1,0 +1,90 @@
+{{ if .IsHome }}
+{{ $s := newScratch }}
+{{ $s.Set "bg" "" }}
+{{ if .Params.hero.image }}
+  {{ $s.Set "bg" .Params.hero.image }}
+{{ else if .Params.image }}
+  {{ $s.Set "bg" .Params.image }}
+{{ else if .Params.featured_image }}
+  {{ $s.Set "bg" .Params.featured_image }}
+{{ end }}
+{{ $bg := $s.Get "bg" }}
+
+{{ $title := default .Title .Params.hero.title }}
+{{ $subtitle := default .Params.subtitle .Params.hero.subtitle }}
+{{ $cta := .Params.hero.cta }}
+{{ $cta_url := .Params.hero.cta_url }}
+
+<section class="site-hero" {{ with $bg }}style="background-image: url('{{ . | relURL }}');"{{ end }}>
+  <div class="site-hero__overlay" aria-hidden="true"></div>
+  <div class="site-hero__inner">
+    <h1 class="site-hero__title">{{ $title | safeHTML }}</h1>
+    {{ if $subtitle }}<p class="site-hero__subtitle">{{ $subtitle | safeHTML }}</p>{{ end }}
+    {{ if and $cta $cta_url }}
+      <p class="site-hero__cta"><a href="{{ $cta_url }}" class="btn">{{ $cta }}</a></p>
+    {{ end }}
+  </div>
+</section>
+
+<style>
+/* Hero full-screen and responsive */
+.site-hero{
+  height:100vh;
+  max-height:100vh;
+  min-height:100vh;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  background-position:center center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  overflow:hidden;
+  box-sizing:border-box;
+}
+.site-hero__overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25));
+  pointer-events:none;
+  z-index:1;
+}
+.site-hero__inner{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:50vw;
+  padding:2rem 1.25rem;
+  text-align:left;
+  margin:0 auto;
+  color:#fff;
+}
+.site-hero__title{ 
+  font-size:clamp(2rem,6vw,4rem); 
+  margin:0 0 0.5rem; 
+  line-height:1.05; 
+  word-break:break-word; 
+  color:#fff;
+}
+.site-hero__subtitle{ 
+  font-size:clamp(1rem,2.2vw,1.25rem); 
+  margin:0 0 1rem; 
+  opacity:0.95; 
+  word-break:break-word; 
+}
+.btn{ display:inline-block; background:#ff6f61; color:#fff; padding:0.75rem 1.25rem; border-radius:6px; text-decoration:none; }
+@media (max-height:600px){
+  .site-hero__inner{ padding:1rem; }
+  .site-hero__title{ font-size:clamp(1.6rem,8vw,2.5rem); }
+}
+@media (max-width:900px){
+  .site-hero__inner{
+    max-width:90vw;
+    padding:1.25rem;
+  }
+  .site-hero__title{ text-align:left; }
+  .site-hero__subtitle{ text-align:left; }
+}
+</style>
+{{ end }}
