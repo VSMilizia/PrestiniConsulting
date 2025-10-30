@@ -1,0 +1,52 @@
+{{/* BIO partial: legge da content/<lang>/bio.md */}}
+
+{{ $lang := .Lang }}
+{{ $bio := site.GetPage (printf "%s/bio" $lang) }}
+{{ if not $bio }}{{ $bio = site.GetPage (printf "/%s/bio" $lang) }}{{ end }}
+
+{{ if $bio }}
+  {{/* risolvi immagine: static (path con "/") o assets (senza "/") */}}
+  {{ $img := "" }}
+  {{ with $bio.Params.image }}
+    {{ if hasPrefix . "/" }}
+      {{ $img = . }}
+    {{ else }}
+      {{ with resources.Get . }}
+        {{ with .Fit "1600x1200" }}{{ $img = .RelPermalink }}{{ else }}{{ $img = .RelPermalink }}{{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ $alt := or $bio.Params.alt "" }}
+  {{ $bg  := or $bio.Params.bg "#607D8B" }}
+
+  <section class="about-split" style="position:relative; margin:clamp(24px,4vw,56px) 0;">
+    <style>
+      .about-split__wrap{display:grid;gap:clamp(16px,3vw,28px);grid-template-columns:1.1fr 1fr;align-items:center}
+      .about-split__text{font-size:clamp(16px,2.2vw,20px);line-height:1.6}
+      .about-split__text h1,.about-split__text h2,.about-split__text h3{line-height:1.15;letter-spacing:-.02em;margin:0 0 .35em}
+      .about-split__media{position:relative;min-height:260px;isolation:isolate}
+      .about-split__bg{position:absolute;inset:-6% -8% -6% 22%;background:{{ $bg }};z-index:1;border-radius:12px}
+      .about-split__img{position:relative;z-index:2;width:100%;height:auto;border-radius:12px;display:block;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+      @media (max-width:900px){
+        .about-split__wrap{grid-template-columns:1fr}
+        .about-split__media{order:-1}
+        .about-split__bg{display:none}
+      }
+    </style>
+
+    <div class="about-split__wrap">
+      <div class="about-split__text">
+        <h2 style="margin:0 0 .35em 0">{{ or $bio.Params.title $bio.Title }}</h2>
+        {{ $bio.Content }}
+      </div>
+
+      <div class="about-split__media">
+        {{ if $img }}
+          <div class="about-split__bg" aria-hidden="true"></div>
+          <img class="about-split__img" src="{{ $img | relURL }}" alt="{{ $alt }}">
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}
