@@ -1,11 +1,11 @@
 ---
 title: "Algo más sobre mi perfil."
-bgColor: "#f5f5f5d5"  # colore sfondo blocco
+bgColor: var(--secondary-accent)  # colore sfondo blocco
 
 # Immagine
 image: "/img/foto.jpg"   # oppure "images/foto.jpg" se sta in /assets
 imageAlt: "Ivan Prestini"
-imageRight: false
+imageRight: true
 
 # Bottone
 button:
@@ -15,4 +15,4 @@ button:
 ---
 # Qualcosa sopra di me
 
-Qui una breve biografia, possibilmente ampliabile con un bottone "scopri di più" per un cv completo.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

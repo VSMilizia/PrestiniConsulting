@@ -1,3 +1,7 @@
+:root {
+    --primary-accent: #1f559b;
+}
+
 section,
 div.section {
   margin-bottom: 0px;

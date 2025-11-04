@@ -24,3 +24,8 @@ defaultContentLanguageInSubdir = true   # crea /it/, /es/, /en/ (utile per test 
   [languages.en]
     languageName = "English"
     weight = 3
+
+[[menu.main]]
+  name = "Bio"
+  url = "#bio"
+  weight = 20

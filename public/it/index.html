@@ -34,10 +34,7 @@
 
 
 
-<link href="/css/custom.css?1762250320" rel="stylesheet">
-
-
-<link rel="stylesheet" href="/css/override.css">
+<link href="/css/custom.css?1762264408" rel="stylesheet">
 
 
 
@@ -107,6 +104,21 @@
                   
 
                   
+                  
+                  
+
+                  
+
+                  
+
+                  
+
+                  
+                  <li class="dropdown ">
+                    <a href="#bio">Bio</a>
+                  </li>
+                  
+                  
                 </ul>
             </div>
             
@@ -129,19 +141,6 @@
 
 
 <style>
- 
-.navbar-collapse {
-    display: none !important;
-}
-.navbar-collapse.in {
-    display: block !important;
-}
-.navbar-toggle {
-    display: block !important;
-}
-.navbar-header {
-    float: none;
-}
 
 </style>
 
@@ -260,12 +259,12 @@
     
   
 
-  <section class="bio-section" style="background-color: #f5f5f5d5;">
-    <div class="bio-container ">
+  <section id="bio" class="bio-section" style="background-color: ZgotmplZ;">
+    <div class="bio-container image-right">
       <div class="bio-text">
 
         <h1 id="qualcosa-sopra-di-me">Qualcosa sopra di me</h1>
-<p>Qui una breve biografia, possibilmente ampliabile con un bottone &ldquo;scopri di più&rdquo; per un cv completo.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 
         
@@ -307,12 +306,22 @@
       align-items: start;
     }
 
+     
     .bio-container.image-right {
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;   
+    }
+    .bio-container.image-right .bio-text {
+      order: 2;   
+    }
+    .bio-container.image-right .bio-image {
+      order: 1;   
     }
 
      
-    .bio-text { padding: 0; }
+    .bio-text { 
+      padding: 0;
+    }
+
     @media (min-width: 769px) {
       .bio-text {
         display: flex;
@@ -331,11 +340,9 @@
      
     .bio-image {
       padding: 10px;
-      display: block;
+      aspect-ratio: 1;
       width: 100%;
       height: auto;
-      aspect-ratio: 1;
-      align-self: stretch;
     }
 
     .bio-image img {
@@ -349,6 +356,11 @@
       .bio-container,
       .bio-container.image-right {
         grid-template-columns: 1fr;
+      }
+
+      .bio-container.image-right .bio-text,
+      .bio-container.image-right .bio-image {
+        order: 0;  
       }
 
       .bio-section {

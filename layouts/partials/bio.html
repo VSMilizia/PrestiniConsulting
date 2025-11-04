@@ -30,7 +30,7 @@
     {{ with $btn.target }}{{ $btnTarget = . }}{{ end }}
   {{ end }}
 
-  <section class="bio-section" style="background-color: {{ $bgColor }};">
+  <section id="bio" class="bio-section" style="background-color: {{ $bgColor }};">
     <div class="bio-container {{ if $imageRight }}image-right{{ end }}">
       <div class="bio-text">
 
@@ -75,12 +75,22 @@
       align-items: start;
     }
 
+    /* quando image-right è attivo, inverti l'ordine delle colonne */
     .bio-container.image-right {
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;  /* mantiene proporzioni ma inverte ordine */
+    }
+    .bio-container.image-right .bio-text {
+      order: 2;  /* sposta il testo dopo l'immagine */
+    }
+    .bio-container.image-right .bio-image {
+      order: 1;  /* sposta l'immagine prima del testo */
     }
 
-    /* testo: diventa flex-column su desktop per "spingere" il bottone in basso */
-    .bio-text { padding: 0; }
+    /* resto del CSS invariato ma riorganizzato */
+    .bio-text { 
+      padding: 0;
+    }
+
     @media (min-width: 769px) {
       .bio-text {
         display: flex;
@@ -99,11 +109,9 @@
     /* immagine: quadrata, padding 10px e riempie l'altezza della colonna */
     .bio-image {
       padding: 10px;
-      display: block;
+      aspect-ratio: 1;
       width: 100%;
       height: auto;
-      aspect-ratio: 1;
-      align-self: stretch;
     }
 
     .bio-image img {
@@ -117,6 +125,11 @@
       .bio-container,
       .bio-container.image-right {
         grid-template-columns: 1fr;
+      }
+
+      .bio-container.image-right .bio-text,
+      .bio-container.image-right .bio-image {
+        order: 0; /* reset ordine su mobile */
       }
 
       .bio-section {

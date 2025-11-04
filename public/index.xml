@@ -5,7 +5,14 @@
     <link>http://localhost:1313/</link>
     <description>Recent content on Prestini Consulting</description>
     <generator>Hugo</generator>
-    <language>it</language>
+    <language>en</language>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algo más sobre mi perfil.</title>
+      <link>http://localhost:1313/it/bio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/it/bio/</guid>
+      <description>&lt;h1 id=&#34;qualcosa-sopra-di-me&#34;&gt;Qualcosa sopra di me&lt;/h1&gt;&#xA;&lt;p&gt;Qui una breve biografia, possibilmente ampliabile con un bottone &amp;ldquo;scopri di più&amp;rdquo; per un cv completo.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

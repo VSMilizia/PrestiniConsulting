@@ -1,3 +1,19 @@
+:root {
+  --primary-accent: #1b498f;
+  --secondary-accent: #cccccc;
+  --navbar-border-top: #15376a;
+  --button-border: #295fa0;
+  --link-focus: #267280;
+  --form-shadow: rgba(56, 167, 187, 0.6);
+  --pagination-bg: #a7dbe5;
+  --link-hover-bg: #2c8494;
+  --navbar-focus: #80cbd9;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 .box-image-text .image {
   min-height: 190px;
   max-height: 190px;
@@ -10,4 +26,14 @@
 
 .box-simple {
   min-height: 230px;
+}
+
+section,
+div.section {
+  margin-bottom: 0px;
+}
+
+/* Imposta un offset automatico per le ancore, tenendo conto dell'altezza della navbar */
+:target {
+  scroll-margin-top: 60px; /* adatta al tuo caso: 60–100px */
 }
