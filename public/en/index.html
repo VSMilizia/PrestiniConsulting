@@ -34,7 +34,10 @@
 
 
 
-<link href="/css/custom.css?1761827802" rel="stylesheet">
+<link href="/css/custom.css?1762250320" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/override.css">
 
 
 
@@ -79,17 +82,14 @@
 
     <div id="all">
 
-        
-
-
         <header class="navbar-affixed-top" data-spy="affix" data-offset-top="62">
     <div class="navbar navbar-default yamm " role="navigation" id="navbar">
         <div class="container">
-            <div class="navbar-header">
+          
+          <div class="navbar-header">
                 <a class="navbar-brand home" href="/en/">
                     
-                      <img src="/" alt="Prestini Consulting logo" class="hidden-xs hidden-sm" />
-                      <img src="/" alt="Prestini Consulting logo" class="visible-xs visible-sm" />
+                      <h4>Prestini Consulting</h4>
                     
                     <span class="sr-only">Prestini Consulting - go to homepage</span>
                 </a>
@@ -125,6 +125,25 @@
         </div>
     </div>
 </header>
+
+
+
+<style>
+ 
+.navbar-collapse {
+    display: none !important;
+}
+.navbar-collapse.in {
+    display: block !important;
+}
+.navbar-toggle {
+    display: block !important;
+}
+.navbar-header {
+    float: none;
+}
+
+</style>
 
 
 
@@ -180,7 +199,7 @@
   max-width:50vw;
   padding:2rem 1.25rem;
   text-align:left;
-  margin:0 auto;
+  margin:0;
   color:#fff;
 }
 .site-hero__title{ 
@@ -196,7 +215,6 @@
   opacity:0.95; 
   word-break:break-word; 
 }
-.btn{ display:inline-block; background:#ff6f61; color:#fff; padding:0.75rem 1.25rem; border-radius:6px; text-decoration:none; }
 @media (max-height:600px){
   .site-hero__inner{ padding:1rem; }
   .site-hero__title{ font-size:clamp(1.6rem,8vw,2.5rem); }

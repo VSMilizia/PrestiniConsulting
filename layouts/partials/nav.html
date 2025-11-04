@@ -1,7 +1,8 @@
 <header class="navbar-affixed-top" data-spy="affix" data-offset-top="62">
     <div class="navbar navbar-default yamm {{ if .Site.Params.dropdown_mouse_over }}mouseover{{ end }}" role="navigation" id="navbar">
         <div class="container">
-            <div class="navbar-header">
+          
+          <div class="navbar-header">
                 <a class="navbar-brand home" href="{{ "/" | relLangURL }}">
                     {{ if default false .Site.Params.disabled_logo }}
                       <h4>{{ .Site.Params.logo_text }}</h4>
@@ -157,5 +158,24 @@
         </div>
     </div>
 </header>
+
+<!-- Custom Styles-->
+
+<style>
+/* Forza il menu collassato sempre */
+.navbar-collapse {
+    display: none !important;
+}
+.navbar-collapse.in {
+    display: block !important;
+}
+.navbar-toggle {
+    display: block !important;
+}
+.navbar-header {
+    float: none;
+}
+
+</style>
 
 <!-- *** NAVBAR END ***-->

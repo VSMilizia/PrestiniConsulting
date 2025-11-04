@@ -5,48 +5,123 @@
 {{ if not $bio }}{{ $bio = site.GetPage (printf "/%s/bio" $lang) }}{{ end }}
 
 {{ if $bio }}
-  {{/* risolvi immagine: static (path con "/") o assets (senza "/") */}}
   {{ $img := "" }}
   {{ with $bio.Params.image }}
     {{ if hasPrefix . "/" }}
       {{ $img = . }}
     {{ else }}
       {{ with resources.Get . }}
-        {{ with .Fit "1600x1200" }}{{ $img = .RelPermalink }}{{ else }}{{ $img = .RelPermalink }}{{ end }}
+        {{ $img = .RelPermalink }}
       {{ end }}
     {{ end }}
   {{ end }}
 
-  {{ $alt := or $bio.Params.alt "" }}
-  {{ $bg  := or $bio.Params.bg "#607D8B" }}
+  {{ $imageRight := default false $bio.Params.imageRight }}
+  {{ $bgColor := default "#fff" $bio.Params.bgColor }} {{/* beige di default */}}
 
-  <section class="about-split" style="position:relative; margin:clamp(24px,4vw,56px) 0;">
-    <style>
-      .about-split__wrap{display:grid;gap:clamp(16px,3vw,28px);grid-template-columns:1.1fr 1fr;align-items:center}
-      .about-split__text{font-size:clamp(16px,2.2vw,20px);line-height:1.6}
-      .about-split__text h1,.about-split__text h2,.about-split__text h3{line-height:1.15;letter-spacing:-.02em;margin:0 0 .35em}
-      .about-split__media{position:relative;min-height:260px;isolation:isolate}
-      .about-split__bg{position:absolute;inset:-6% -8% -6% 22%;background:{{ $bg }};z-index:1;border-radius:12px}
-      .about-split__img{position:relative;z-index:2;width:100%;height:auto;border-radius:12px;display:block;box-shadow:0 10px 30px rgba(0,0,0,.18)}
-      @media (max-width:900px){
-        .about-split__wrap{grid-template-columns:1fr}
-        .about-split__media{order:-1}
-        .about-split__bg{display:none}
-      }
-    </style>
+    {{/* optional CTA params: button: { text, url, target } */}}
+  {{ $btn := $bio.Params.button }}
+  {{ $btnText := "" }}
+  {{ $btnURL := "" }}
+  {{ $btnTarget := "" }}
+  {{ if $btn }}
+    {{ with $btn.text }}{{ $btnText = . }}{{ end }}
+    {{ with $btn.url }}{{ $btnURL = . }}{{ end }}
+    {{ with $btn.target }}{{ $btnTarget = . }}{{ end }}
+  {{ end }}
 
-    <div class="about-split__wrap">
-      <div class="about-split__text">
-        <h2 style="margin:0 0 .35em 0">{{ or $bio.Params.title $bio.Title }}</h2>
+  <section class="bio-section" style="background-color: {{ $bgColor }};">
+    <div class="bio-container {{ if $imageRight }}image-right{{ end }}">
+      <div class="bio-text">
+
         {{ $bio.Content }}
-      </div>
 
-      <div class="about-split__media">
-        {{ if $img }}
-          <div class="about-split__bg" aria-hidden="true"></div>
-          <img class="about-split__img" src="{{ $img | relURL }}" alt="{{ $alt }}">
+        {{ if $btnText }}
+          {{/* costruisci href: interna se /... */}}
+          {{ $href := $btnURL }}
+          {{ if and $btnURL (hasPrefix $btnURL "/") }}
+            {{ $href = $btnURL | relLangURL }}
+          {{ end }}
+          <p class="bio-cta-wrap">
+            <a class="bio-cta btn btn-small btn-template-main" href="{{ $href | safeURL }}" {{ if $btnTarget }}target="{{ $btnTarget }}" rel="noopener"{{ end }}>
+              {{ $btnText }}
+            </a>
+          </p>
         {{ end }}
+
       </div>
+      
+      {{ if $img }}
+      <div class="bio-image">
+        <img src="{{ $img | relURL }}" alt="{{ $bio.Params.imageAlt }}" />
+      </div>
+      {{ end }}
+
     </div>
   </section>
+
+  <style>
+    .bio-section {
+      padding: 4rem 2rem;
+      margin: 0;
+    }
+
+    .bio-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .bio-container.image-right {
+      grid-template-columns: 1fr 2fr;
+    }
+
+    /* testo: diventa flex-column su desktop per "spingere" il bottone in basso */
+    .bio-text { padding: 0; }
+    @media (min-width: 769px) {
+      .bio-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        min-height: 100%;
+      }
+      /* qui il wrapper del bottone prende tutto lo spazio rimanente */
+      .bio-cta-wrap { margin-top: auto; }
+    }
+    @media (max-width: 768px) {
+      .bio-cta-wrap { margin-top: 1rem; }
+    }
+
+
+    /* immagine: quadrata, padding 10px e riempie l'altezza della colonna */
+    .bio-image {
+      padding: 10px;
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      align-self: stretch;
+    }
+
+    .bio-image img {
+      width: 100%;
+      height: 100%;  /* riempi tutto il contenitore */
+      object-fit: cover;  /* ritaglia mantenendo le proporzioni */
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .bio-container,
+      .bio-container.image-right {
+        grid-template-columns: 1fr;
+      }
+
+      .bio-section {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
 {{ end }}

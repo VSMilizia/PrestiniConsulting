@@ -7,6 +7,11 @@ theme = "github.com/devcows/hugo-universal-theme"
 defaultContentLanguage = "it"
 defaultContentLanguageInSubdir = true   # crea /it/, /es/, /en/ (utile per test e SEO)
 
+# --- NAVBAR ---
+[params]
+  disabled_logo = true
+  logo_text = "Prestini Consulting"
+
 [languages]
   [languages.it]
     languageName = "Italiano"

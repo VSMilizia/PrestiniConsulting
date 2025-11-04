@@ -1,7 +1,18 @@
 ---
 title: "Algo más sobre mi perfil."
+bgColor: "#f5f5f5d5"  # colore sfondo blocco
+
+# Immagine
 image: "/img/foto.jpg"   # oppure "images/foto.jpg" se sta in /assets
-alt: "Ritratto professionale"
-bg: "#6A7E83"                # colore del rettangolo dietro la foto
+imageAlt: "Ivan Prestini"
+imageRight: false
+
+# Bottone
+button:
+  text: "Scopri di più"
+  url: "/cv/"         # interno -> relLangURL verrà applicato
+  target: "_self"     # opzionale, es. "_blank"
 ---
-Soy fundador de **FDV Consulting**, consultoría estratégica… *(Markdown libero qui)*
+# Qualcosa sopra di me
+
+Qui una breve biografia, possibilmente ampliabile con un bottone "scopri di più" per un cv completo.
