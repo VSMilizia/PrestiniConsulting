@@ -32,8 +32,7 @@ defaultContentLanguageInSubdir = true   # crea /it/, /es/, /en/ (utile per test 
 
 [params.clients]
 enable   = true
-title    = "Our Partners"
-subtitle = "We have proudly collaborated with the following companies."
+
 
 [params.CarouselCustomers]
 items = 5
