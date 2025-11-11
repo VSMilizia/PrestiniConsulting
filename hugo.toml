@@ -7,7 +7,7 @@ theme = "github.com/devcows/hugo-universal-theme"
 defaultContentLanguage = "it"
 defaultContentLanguageInSubdir = true   # crea /it/, /es/, /en/ (utile per test e SEO)
 
-# --- NAVBAR ---
+  # --- NAVBAR ---
 [params]
   disabled_logo = true
   logo_text = "Prestini Consulting"
@@ -30,12 +30,22 @@ defaultContentLanguageInSubdir = true   # crea /it/, /es/, /en/ (utile per test 
   url = "#bio"
   weight = 20
 
+# --- FORNITORI ---
 [params.clients]
 enable   = true
-
 
 [params.CarouselCustomers]
 items = 5
 auto_play = true          # <— questo abilita l’autoplay dai data-attributes
 slide_speed = 400
+pagination_speed = 600
+
+  # --- CREDITS ---
+[params.testimonials]
+enable   = true
+
+[params.CarouselTestimonials]
+items = 3
+auto_play = true
+slide_speed = 800
 pagination_speed = 600
