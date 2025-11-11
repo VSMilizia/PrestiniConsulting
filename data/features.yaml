@@ -1,0 +1,11 @@
+- title: "Central Production Kitchens"
+  icon: "fas fa-industry"
+  text: "Master planning, flussi, attrezzature e MEP."
+  url: "/services/cpk/"
+  button: "Scopri di più"
+
+- title: "Waste Management"
+  icon: "fas fa-recycle"
+  text: "Raccolta, pesatura, tracciabilità e stoccaggio."
+  url: "/services/waste/"
+  button: "Processo"

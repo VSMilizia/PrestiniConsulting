@@ -49,3 +49,17 @@ items = 3
 auto_play = true
 slide_speed = 800
 pagination_speed = 600
+
+  # --- SEE MORE ---
+[params.see_more]
+enable   = true
+title   = "Un claim molto catchy"
+subtitle  = "Fuffa qua e la può solo far bene. Non necessariamente verrà letta ma qualcosa mi dice che darà al tutto un aspetto professionale e accattivante."
+link_url  = "github.com/devcows/hugo-universal-theme"
+link_text = "TASTO MOLTO UTILE"
+icon  = "fas fa-globe"
+
+  # --- FEATURES ---
+[params.features]
+enable   = true
+cols     = 3         # numero di colonne nella griglia (se previsto)
