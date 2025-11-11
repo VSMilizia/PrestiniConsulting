@@ -1,0 +1,17 @@
+- weight: 10
+  name: "Central Production Kitchens"
+  icon: "fas fa-industry"
+  description: "Master planning, flussi, attrezzature e MEP."
+  button: "Scopri di più"
+
+- weight: 20
+  name: "Waste Management"
+  icon: "fas fa-recycle"
+  description: "Raccolta, pesatura, tracciabilità e stoccaggio."
+  button: "Processo"
+
+- weight: 30
+  name: "World is beautiful"
+  icon: "fas fa-globe"
+  description: "Raccolta, pesatura, tracciabilità e stoccaggio."
+  button: "Processo"
