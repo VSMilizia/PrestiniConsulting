@@ -24,10 +24,6 @@ html {
   margin: auto;
 }
 
-.box-simple {
-  min-height: 230px;
-}
-
 section,
 div.section {
   margin-bottom: 0px;

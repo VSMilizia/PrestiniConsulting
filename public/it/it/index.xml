@@ -14,5 +14,12 @@
       <guid>http://localhost:1313/it/it/bio/</guid>
       <description>&lt;h1 id=&#34;qualcosa-sopra-di-me&#34;&gt;Qualcosa sopra di me&lt;/h1&gt;&#xA;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;</description>
     </item>
+    <item>
+      <title>Introduzione molto figa su di me</title>
+      <link>http://localhost:1313/it/it/intro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/it/it/intro/</guid>
+      <description>&lt;h1 id=&#34;architettura-dellefficienza&#34;&gt;Architettura dell’efficienza&lt;/h1&gt;&#xA;&lt;p&gt;Ogni progetto F&amp;amp;B nasce da un’idea, ma funziona solo quando visione, spazio e processo diventano un sistema coerente. Il mio lavoro è dare forma a questo sistema.&lt;/p&gt;&#xA;&lt;p&gt;Supporto architetti, operatori e investitori nel disegnare modelli produttivi solidi e scalabili, capaci di trasformare la complessità in efficienza.&lt;/p&gt;&#xA;&lt;p&gt;Analizzo flussi, capacità e funzioni, definendo come persone, prodotti e tecnologie devono muoversi perché l’intero ingranaggio lavori con precisione.&lt;/p&gt;&#xA;&lt;p&gt;Non mi limito a progettare cucine o spazi di servizio: costruisco logiche operative, traduco la strategia gestionale in layout e infrastrutture reali, coordinando tutti gli attori coinvolti — dal team di design agli ingegneri, dagli chef ai facility manager.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

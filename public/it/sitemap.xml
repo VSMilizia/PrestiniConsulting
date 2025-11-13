@@ -42,6 +42,8 @@
   </url><url>
     <loc>http://localhost:1313/it/en/</loc>
   </url><url>
+    <loc>http://localhost:1313/it/it/intro/</loc>
+  </url><url>
     <loc>http://localhost:1313/it/it/</loc>
   </url><url>
     <loc>http://localhost:1313/it/tags/</loc>

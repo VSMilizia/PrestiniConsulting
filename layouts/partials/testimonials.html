@@ -1,7 +1,10 @@
 {{ if isset .Site.Params "testimonials" }}
 {{ if .Site.Params.testimonials.enable }}
-{{ if isset .Site.Data "testimonials" }}
-{{ if gt (len .Site.Data.testimonials) 0 }}
+{{ $lang := .Site.Language.Lang }}
+{{ if isset (index site.Data $lang) "testimonials" }}
+{{ if gt (len (index .Site.Data $lang "testimonials")) 0 }}
+{{ $testimonials := index site.Data $lang "testimonials" }}
+
 <section class="bar background-pentagon no-mb">
     <div class="container">
         <div class="row">
@@ -21,7 +24,7 @@
                     data-autoplay="{{ default false .Site.Params.CarouselTestimonials.auto_play }}"
                     data-slide-speed="{{ default 2000 .Site.Params.CarouselTestimonials.slide_speed }}"
                     data-pagination-speed="{{ default 1000 .Site.Params.CarouselTestimonials.pagination_speed }}">
-                    {{ range .Site.Data.testimonials }}
+                    {{ range $testimonials }}
                     <li class="item">
                         <div class="testimonial same-height-always">
                             <div class="text">

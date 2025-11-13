@@ -1,10 +1,10 @@
 {{ $lang := .Lang }}
-{{ $bio := site.GetPage (printf "%s/bio" $lang) }}
-{{ if not $bio }}{{ $bio = site.GetPage (printf "/%s/bio" $lang) }}{{ end }}
+{{ $intro := site.GetPage (printf "%s/intro" $lang) }}
+{{ if not $intro }}{{ $intro = site.GetPage (printf "/%s/intro" $lang) }}{{ end }}
 
-{{ if $bio }}
+{{ if $intro }}
   {{ $img := "" }}
-  {{ with $bio.Params.image }}
+  {{ with $intro.Params.image }}
     {{ if hasPrefix . "/" }}
       {{ $img = . }}
     {{ else }}
@@ -14,11 +14,11 @@
     {{ end }}
   {{ end }}
 
-  {{ $imageRight := default false $bio.Params.imageRight }}
-  {{ $bgColor := default "#fff" $bio.Params.bgColor }} {{/* beige di default */}}
+  {{ $imageRight := default false $intro.Params.imageRight }}
+  {{ $bgColor := default "#fff" $intro.Params.bgColor }} {{/* bianco di default */}}
 
     {{/* optional CTA params: button: { text, url, target } */}}
-  {{ $btn := $bio.Params.button }}
+  {{ $btn := $intro.Params.button }}
   {{ $btnText := "" }}
   {{ $btnURL := "" }}
   {{ $btnTarget := "" }}
@@ -28,11 +28,11 @@
     {{ with $btn.target }}{{ $btnTarget = . }}{{ end }}
   {{ end }}
 
-  <section id="bio" class="bio-section" style="background-color: {{ $bgColor }};">
-    <div class="bio-container {{ if $imageRight }}image-right{{ end }}">
-      <div class="bio-text">
+  <section id="introduction" class="intro-section">
+    <div class="intro-container {{ if $imageRight }}image-right{{ end }}">
+      <div class="intro-text">
 
-        {{ $bio.Content }}
+        {{ $intro.Content }}
 
         {{ if $btnText }}
           {{/* costruisci href: interna se /... */}}
@@ -40,8 +40,8 @@
           {{ if and $btnURL (hasPrefix $btnURL "/") }}
             {{ $href = $btnURL | relLangURL }}
           {{ end }}
-          <p class="bio-cta-wrap">
-            <a class="bio-cta btn btn-small btn-template-main" href="{{ $href | safeURL }}" {{ if $btnTarget }}target="{{ $btnTarget }}" rel="noopener"{{ end }}>
+          <p class="intro-cta-wrap">
+            <a class="intro-cta btn btn-small btn-template-main" href="{{ $href | safeURL }}" {{ if $btnTarget }}target="{{ $btnTarget }}" rel="noopener"{{ end }}>
               {{ $btnText }}
             </a>
           </p>
@@ -50,8 +50,8 @@
       </div>
       
       {{ if $img }}
-      <div class="bio-image">
-        <img src="{{ $img | relURL }}" alt="{{ $bio.Params.imageAlt }}" />
+      <div class="intro-image">
+        <img src="{{ $img | relURL }}" alt="{{ $intro.Params.imageAlt }}" />
       </div>
       {{ end }}
 
@@ -59,60 +59,62 @@
   </section>
 
   <style>
-    .bio-section {
+    .intro-section {
       padding: 4rem 2rem;
       margin: 0;
+      background-color: "{{ $bgColor }}";
     }
 
-    .bio-container {
+    .intro-container {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 2fr 1fr;
-      gap: 2rem;
+      gap: 5rem;
       align-items: start;
     }
 
     /* quando image-right è attivo, inverti l'ordine delle colonne */
-    .bio-container.image-right {
+    .intro-container.image-right {
       grid-template-columns: 1fr 2fr;  /* mantiene proporzioni ma inverte ordine */
     }
-    .bio-container.image-right .bio-text {
+    .intro-container.image-right .intro-text {
       order: 2;  /* sposta il testo dopo l'immagine */
     }
-    .bio-container.image-right .bio-image {
+    .intro-container.image-right .intro-image {
       order: 1;  /* sposta l'immagine prima del testo */
     }
 
     /* resto del CSS invariato ma riorganizzato */
-    .bio-text { 
+    .intro-text { 
       padding: 0;
+      font-size:16px;
     }
 
     @media (min-width: 769px) {
-      .bio-text {
+      .intro-text {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         min-height: 100%;
       }
       /* qui il wrapper del bottone prende tutto lo spazio rimanente */
-      .bio-cta-wrap { margin-top: auto; }
+      .intro-cta-wrap { margin-top: auto; }
     }
     @media (max-width: 768px) {
-      .bio-cta-wrap { margin-top: 1rem; }
+      .intro-cta-wrap { margin-top: 1rem; }
     }
 
 
     /* immagine: quadrata, padding 10px e riempie l'altezza della colonna */
-    .bio-image {
+    .intro-image {
       padding: 10px;
       aspect-ratio: 1;
       width: 100%;
       height: auto;
     }
 
-    .bio-image img {
+    .intro-image img {
       width: 100%;
       height: 100%;  /* riempi tutto il contenitore */
       object-fit: cover;  /* ritaglia mantenendo le proporzioni */
@@ -120,17 +122,17 @@
     }
 
     @media (max-width: 768px) {
-      .bio-container,
-      .bio-container.image-right {
+      .intro-container,
+      .intro-container.image-right {
         grid-template-columns: 1fr;
       }
 
-      .bio-container.image-right .bio-text,
-      .bio-container.image-right .bio-image {
+      .intro-container.image-right .intro-text,
+      .intro-container.image-right .intro-image {
         order: 0; /* reset ordine su mobile */
       }
 
-      .bio-section {
+      .intro-section {
         padding: 2rem 1rem;
       }
     }

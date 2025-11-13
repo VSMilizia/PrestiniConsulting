@@ -3,7 +3,7 @@
 {{ $lang := .Site.Language.Lang }}
 {{ if isset (index site.Data $lang) "features" }}
 {{ if gt (len (index .Site.Data $lang "features")) 0 }}
-<section class="bar background-white">
+<section class="bar background-gray">
     <div class="container">
         {{ $elements := default 3 .Site.Params.features.cols }}
         {{ $features := sort (index .Site.Data $lang "features") "weight" }}
@@ -47,3 +47,9 @@
 {{ end }}
 {{ end }}
 {{ end }}
+
+<style>
+  .box-simple {
+    padding:40px 0px;
+  }
+</style>
